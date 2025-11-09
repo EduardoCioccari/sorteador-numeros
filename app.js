@@ -4,9 +4,18 @@ function sortear() {
   let de = parseInt(document.getElementById("de").value)
   let ate = parseInt(document.getElementById("ate").value)
 
-  // Erro se o número da variável 'de' for maior do que a variável 'ate'
-  if (de > ate) {
+  // Erro se o número da variável 'de' for maior ou igual a variável 'ate'
+  if (de >= ate) {
     alert("Erro: número inicial maior do que o final")
+
+    return
+  }
+
+  // Erro caso o intervalo não tiver números suficientes para gerar a quantidade definida
+  let diferencaNumerosEscolhidos = ate - de + 1
+
+  if (quantidade >= diferencaNumerosEscolhidos) {
+    alert("Erro: sem números suficientes para gerar a quantidade definida")
 
     return
   }
@@ -14,6 +23,7 @@ function sortear() {
   // Utilizando loop for para gerar a quantidade de números aleatórios que o usuário quiser.
   let numero
   let sorteados = []
+
   for (let i = 0; i < quantidade; i++) {
     numero = obterNumeroAleatorio(de, ate)
 
